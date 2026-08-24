@@ -1,0 +1,21 @@
+{
+  "name": "espacos-corporativos",
+  "version": "1.0.0",
+  "description": "Sistema Inteligente de Gestão e Otimização de Espaços Corporativos",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npm test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "seed": "npm run seed --workspace @espacos/server",
+    "dev:server": "npm run dev --workspace @espacos/server",
+    "dev:web": "npm run dev --workspace @espacos/web",
+    "dev": "concurrently -n server,web -c blue,green \"npm:dev:server\" \"npm:dev:web\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
